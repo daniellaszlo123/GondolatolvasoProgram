@@ -18,7 +18,7 @@ public class GondolatolvasoProgram {
         
         for (int i = 0; i < 3; i++) {
             pakliKiir();
-            kartyaValaszt();
+            oszlValaszt();
             pakliKever();
             System.out.println("");
         }
@@ -52,7 +52,7 @@ public class GondolatolvasoProgram {
         }
     }
 
-    private static void kartyaValaszt() {
+    private static void oszlValaszt() {
         Scanner sc = new Scanner(System.in);
         
         System.out.print("Add meg a gondolt lapod oszlopának számát: ");
