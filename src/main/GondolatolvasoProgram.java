@@ -16,9 +16,12 @@ public class GondolatolvasoProgram {
     public static void main(String[] args) {
         pakliFeltolt();
         
-        pakliKiir();
-        kartyaValaszt();
-        pakliKever();
+        for (int i = 0; i < 3; i++) {
+            pakliKiir();
+            kartyaValaszt();
+            pakliKever();
+            System.out.println("");
+        }
         
         gondoltLapKiir();
     }
@@ -28,19 +31,19 @@ public class GondolatolvasoProgram {
         int szinIndex=0;
         for (int i = 1; i < pakli.length; i++) {
             pakli[i]=szinek[szinIndex]+"_"+ertekek[ertekIndex];
-            if (ertekIndex==5) {
+            ertekIndex++;
+            if (ertekIndex==7) {
                 ertekIndex=1;
             }
             if (i%6==0) {
                 szinIndex++;
             }
-            ertekIndex++;
         }
     }
 
     private static void pakliKiir() {
         for (int i = 1; i < pakli.length; i++) {
-            System.out.print(pakli[i]+" ");
+            System.out.print(pakli[i]+"\t");
             szamlalo++;
             if (szamlalo==3) {
                 System.out.println("");
@@ -62,10 +65,74 @@ public class GondolatolvasoProgram {
     }
 
     private static void pakliKever() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        oszlSzamKozepre(oszlSzam);
     }
 
     private static void gondoltLapKiir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.printf("A választott kártya a %s\n",pakli[11]);
+    }
+
+    private static String[] oszlFeltolt(int oszlSzam) {
+        String[] oszlop = new String[7];
+        int oszIndex=0;
+        for (int i = oszlSzam; i < pakli.length; i+=3) {
+            oszlop[oszIndex]=pakli[i];
+            oszIndex++;
+        }
+        
+        oszIndex=0;
+        String[] oszlAlulrol = new String[7];
+        for (int i = oszlop.length-1; i >= 0; i--) {
+            oszlAlulrol[oszIndex]=oszlop[i];
+            oszIndex++;
+        }
+        return oszlAlulrol;
+    }
+
+    private static void oszlSzamKozepre(int oszlSzam) {
+        String[] elsoOszl=oszlFeltolt(1);
+        String[] masodikOszl=oszlFeltolt(2);
+        String[] harmadikOszl=oszlFeltolt(3);
+        
+        if (oszlSzam==1) {
+            for (int i = 0; i < 7; i++) {
+                pakli[i+1]=masodikOszl[i];
+            }
+            
+            for (int i = 0; i < 7; i++) {
+                pakli[8+i]=elsoOszl[i];
+            }
+            
+            for (int i = 0; i < 7; i++) {
+                pakli[15+i]=harmadikOszl[i];
+            }
+                        
+        }
+        else if (oszlSzam==2) {
+            for (int i = 0; i < 7; i++) {
+                pakli[i+1]=elsoOszl[i];
+            }
+            
+            for (int i = 0; i < 7; i++) {
+                pakli[8+i]=masodikOszl[i];
+            }
+            
+            for (int i = 0; i < 7; i++) {
+                pakli[15+i]=harmadikOszl[i];
+            }
+        }
+        else{
+            for (int i = 0; i < 7; i++) {
+                pakli[i+1]=elsoOszl[i];
+            }
+            
+            for (int i = 0; i < 7; i++) {
+                pakli[8+i]=harmadikOszl[i];
+            }
+            
+            for (int i = 0; i < 7; i++) {
+                pakli[15+i]=masodikOszl[i];
+            }
+        }
     }
 }
