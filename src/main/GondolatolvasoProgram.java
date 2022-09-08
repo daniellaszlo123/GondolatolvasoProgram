@@ -94,45 +94,40 @@ public class GondolatolvasoProgram {
         String[] masodikOszl=oszlFeltolt(2);
         String[] harmadikOszl=oszlFeltolt(3);
         
-        if (oszlSzam==1) {
-            for (int i = 0; i < 7; i++) {
-                pakli[i+1]=masodikOszl[i];
-            }
-            
-            for (int i = 0; i < 7; i++) {
-                pakli[8+i]=elsoOszl[i];
-            }
-            
-            for (int i = 0; i < 7; i++) {
-                pakli[15+i]=harmadikOszl[i];
-            }
-                        
-        }
-        else if (oszlSzam==2) {
-            for (int i = 0; i < 7; i++) {
-                pakli[i+1]=elsoOszl[i];
-            }
-            
-            for (int i = 0; i < 7; i++) {
-                pakli[8+i]=masodikOszl[i];
-            }
-            
-            for (int i = 0; i < 7; i++) {
-                pakli[15+i]=harmadikOszl[i];
-            }
-        }
-        else{
-            for (int i = 0; i < 7; i++) {
-                pakli[i+1]=elsoOszl[i];
-            }
-            
-            for (int i = 0; i < 7; i++) {
-                pakli[8+i]=harmadikOszl[i];
-            }
-            
-            for (int i = 0; i < 7; i++) {
-                pakli[15+i]=masodikOszl[i];
-            }
+        switch (oszlSzam) {
+            case 1:
+                for (int i = 0; i < 7; i++) {
+                    pakli[i+1]=masodikOszl[i];
+                }
+                for (int i = 0; i < 7; i++) {
+                    pakli[8+i]=elsoOszl[i];
+                }
+                for (int i = 0; i < 7; i++) {
+                    pakli[15+i]=harmadikOszl[i];
+                }
+                break;
+            case 2:
+                for (int i = 0; i < 7; i++) {
+                    pakli[i+1]=elsoOszl[i];
+                }
+                for (int i = 0; i < 7; i++) {
+                    pakli[8+i]=masodikOszl[i];
+                }
+                for (int i = 0; i < 7; i++) {
+                    pakli[15+i]=harmadikOszl[i];
+                }
+                break;
+            default:
+                for (int i = 0; i < 7; i++) {
+                    pakli[i+1]=elsoOszl[i];
+                }
+                for (int i = 0; i < 7; i++) {
+                    pakli[8+i]=harmadikOszl[i];
+                }
+                for (int i = 0; i < 7; i++) {
+                    pakli[15+i]=masodikOszl[i];
+                }
+                break;
         }
     }
 }
