@@ -1,6 +1,8 @@
 
 package main;
 
+import java.util.Scanner;
+
 
 public class GondolatolvasoProgram {
 
@@ -10,9 +12,15 @@ public class GondolatolvasoProgram {
     
     
     static int szamlalo=0;
+    static int oszlSzam;
     public static void main(String[] args) {
         pakliFeltolt();
+        
         pakliKiir();
+        kartyaValaszt();
+        pakliKever();
+        
+        gondoltLapKiir();
     }
     
     private static void pakliFeltolt() {
@@ -39,5 +47,25 @@ public class GondolatolvasoProgram {
                 szamlalo=0;
             }
         }
+    }
+
+    private static void kartyaValaszt() {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Add meg a gondolt lapod oszlopának számát: ");
+        oszlSzam=sc.nextInt();
+        
+        while (oszlSzam<1 || oszlSzam>3) {
+            System.out.print("Nem jó, oszlopok száma(1, 2, 3). Újra: ");
+            oszlSzam=sc.nextInt();
+        }
+    }
+
+    private static void pakliKever() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static void gondoltLapKiir() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
